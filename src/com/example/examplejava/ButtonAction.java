@@ -5,9 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonAction extends JButton implements ActionListener {
-    public ButtonAction (Game game){
+    public ButtonAction (ActionDelegate actionDelegate){
         super.addActionListener(this);
-        delegate=game;
+        delegate=actionDelegate;
     }
 
     public ActionDelegate delegate;
