@@ -5,10 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonAction extends JButton implements ActionListener {
-    public ButtonAction (){
+    public ButtonAction (Game game){
         super.addActionListener(this);
+        delegate=game;
     }
 
+    public ActionDelegate delegate;
     public static int counter = 0;
     public int gamerID=4;
 
@@ -18,13 +20,13 @@ public class ButtonAction extends JButton implements ActionListener {
             setIcon(MyImages.X);
             removeActionListener(this);
             gamerID=1;
-            ExampleJava.checkWinner();
+            delegate.checkWinner();
         }
         else if (counter==1){
             setIcon(MyImages.O);
             removeActionListener(this);
             gamerID=0;
-            ExampleJava.checkWinner();
+            delegate.checkWinner();
         }
         counter=(counter+1)%2;
     }
